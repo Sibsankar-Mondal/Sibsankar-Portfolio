@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sibsankar Mondal — Production Engineer</title>
+  <meta name="description" content="Sibsankar Mondal — Production Engineering undergraduate at Jadavpur University. Robotics, mechatronics, product design and manufacturing.">
+
+  <meta name="theme-color" content="#0A0B0E">
+  <!-- ⚠ REPLACE with your deployed URL before going live (Vercel/GitHub Pages) -->
+  <link rel="canonical" href="https://your-domain-here.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sibsankar Mondal — Production Engineer">
+  <meta property="og:description" content="Robotics · Mechatronics · Product Design · Manufacturing">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero/portrait.jpg">
+  <meta property="og:url" content="https://your-domain-here.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Google Fonts: Space Grotesk (display), Manrope (body), JetBrains Mono (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div id="loading-screen" class="loading-screen" aria-hidden="true">
+    <svg class="blueprint-grid" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <!-- CSS/JS animates stroke-dashoffset on these lines in later phases -->
+      <line x1="0" y1="20" x2="100" y2="20" class="grid-line" />
+      <line x1="0" y1="50" x2="100" y2="50" class="grid-line" />
+      <line x1="0" y1="80" x2="100" y2="80" class="grid-line" />
+      <line x1="25" y1="0" x2="25" y2="100" class="grid-line" />
+      <line x1="50" y1="0" x2="50" y2="100" class="grid-line" />
+      <line x1="75" y1="0" x2="75" y2="100" class="grid-line" />
+    </svg>
+    <div class="loading-title-block mono">
+      <span>S. MONDAL</span>
+      <span class="loading-status">INITIALIZING —</span>
+    </div>
+  </div>
+
+  <!-- ============ TITLE BLOCK / SIDEBAR NAV ============ -->
+  <header class="title-block" id="title-block">
+    <div class="title-block-top">
+      <a href="#home" class="mark mono" data-bind="personal.initials">S.M.</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="title-block-meta mono">
+      <span class="sheet-counter">SHEET <span id="current-sheet">01</span>/12</span>
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="scroll-progress"></div>
+      </div>
+    </div>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home" data-sheet="01" class="nav-link"><span class="nav-index mono">01</span>Home</a></li>
+        <li><a href="#about" data-sheet="02" class="nav-link"><span class="nav-index mono">02</span>About</a></li>
+        <li><a href="#education" data-sheet="03" class="nav-link"><span class="nav-index mono">03</span>Education</a></li>
+        <li><a href="#experience" data-sheet="04" class="nav-link"><span class="nav-index mono">04</span>Experience</a></li>
+        <li><a href="#internship" data-sheet="05" class="nav-link"><span class="nav-index mono">05</span>Internship</a></li>
+        <li><a href="#projects" data-sheet="06" class="nav-link"><span class="nav-index mono">06</span>Projects</a></li>
+        <li><a href="#skills" data-sheet="07" class="nav-link"><span class="nav-index mono">07</span>Skills</a></li>
+        <li><a href="#achievements" data-sheet="08" class="nav-link"><span class="nav-index mono">08</span>Achievements</a></li>
+        <li><a href="#certifications" data-sheet="09" class="nav-link"><span class="nav-index mono">09</span>Certifications</a></li>
+        <li><a href="#gallery" data-sheet="10" class="nav-link"><span class="nav-index mono">10</span>Gallery</a></li>
+        <li><a href="#resume" data-sheet="11" class="nav-link"><span class="nav-index mono">11</span>Résumé</a></li>
+        <li><a href="#contact" data-sheet="12" class="nav-link"><span class="nav-index mono">12</span>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="title-block-status mono" aria-hidden="true">
+      <span class="status-dot"></span>
+      STATUS: <span id="status-text" data-bind="personal.status">AVAILABLE</span>
+    </div>
+
+    <div class="social-links" aria-label="Social links">
+      <a data-bind-href="social.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a data-bind-href="social.github" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a data-bind-href="social.instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a data-bind-href="social.emailHref" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </header>
+
+  <div class="mobile-nav-scrim" id="mobile-nav-scrim" hidden></div>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main-content">
+
+    <!-- 01 · HERO -->
+    <section id="home" class="sheet hero" data-sheet="01" aria-label="Home">
+      <div class="hero-media">
+        <img class="hero-photo" src="assets/images/hero/portrait.jpg" alt="Portrait of Sibsankar Mondal" data-bind-src="personal.photo" fetchpriority="high" decoding="async">
+        <div class="hero-photo-overlay" aria-hidden="true"></div>
+      </div>
+
+      <svg class="hero-gear" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <polygon points="120.0,60.0 119.5,67.8 100.6,70.9 98.8,76.1 112.0,90.0 107.6,96.5 89.7,89.7 85.6,93.3 90.0,112.0 83.0,115.4 70.9,100.6 65.5,101.6 60.0,120.0 52.2,119.5 49.1,100.6 43.9,98.8 30.0,112.0 23.5,107.6 30.3,89.7 26.7,85.6 8.0,90.0 4.6,83.0 19.4,70.9 18.4,65.5 0.0,60.0 0.5,52.2 19.4,49.1 21.2,43.9 8.0,30.0 12.4,23.5 30.3,30.3 34.4,26.7 30.0,8.0 37.0,4.6 49.1,19.4 54.5,18.4 60.0,0.0 67.8,0.5 70.9,19.4 76.1,21.2 90.0,8.0 96.5,12.4 89.7,30.3 93.3,34.4 112.0,30.0 115.4,37.0 100.6,49.1 101.6,54.5"
+          fill="none" stroke="#E08A4B" stroke-width="1.5" stroke-linejoin="round" opacity="0.85" />
+        <circle cx="60" cy="60" r="34" fill="none" stroke="#8B93A1" stroke-width="0.75" opacity="0.5" />
+        <circle cx="60" cy="60" r="18" fill="none" stroke="#4FD1FF" stroke-width="1.5" opacity="0.9" />
+        <circle cx="60" cy="60" r="4" fill="#4FD1FF" opacity="0.7" />
+      </svg>
+
+      <div class="hero-badge hero-badge--copper" style="top: 21%; left: 6%; animation-duration: 5s;">
+        <span class="dot"></span>MECHANISM DESIGN
+      </div>
+      <div class="hero-badge hero-badge--argon" style="top: 31%; left: 6%; animation-duration: 6.5s; animation-delay: -1.5s;">
+        <span class="dot"></span>SENSORS &amp; ACTUATORS
+      </div>
+      <div class="hero-badge hero-badge--copper" style="top: 41%; left: 6%; animation-duration: 4.5s; animation-delay: -3s;">
+        <span class="dot"></span>CAD · FEA
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow mono" data-bind="hero.eyebrow">PRODUCTION ENGINEERING — ROBOTICS — MECHATRONICS</p>
+        <h1 class="hero-masthead" data-bind="hero.masthead">MONDAL</h1>
+        <p class="hero-subhead" data-bind="hero.subhead">
+          Production Engineering undergraduate at Jadavpur University, building across robotics, product design and manufacturing.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#resume" class="btn btn-secondary" data-bind-href="personal.resumeUrl" download>Download Résumé</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+        <div class="hero-socials" aria-label="Social links">
+          <a data-bind-href="social.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a data-bind-href="social.github" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a data-bind-href="social.instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a data-bind-href="social.emailHref" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-readout mono" aria-hidden="true">
+        <span id="cursor-x">X: 000</span>
+        <span id="cursor-y">Y: 000</span>
+      </div>
+    </section>
+
+    <!-- 02 · ABOUT -->
+    <section id="about" class="sheet" data-sheet="02" aria-labelledby="about-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">02</span> — ABOUT</p>
+        <h2 id="about-heading">About</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-story" data-bind="about.story" data-bind-html="true">
+          <!-- paragraph(s) populated from config.about.story -->
+        </div>
+        <div class="about-philosophy">
+          <p class="eyebrow mono">APPROACH</p>
+          <p data-bind="about.philosophy"></p>
+        </div>
+      </div>
+
+      <div class="about-timeline" id="about-timeline" data-repeat="about.timeline" data-template="timeline-item-template">
+        <!-- cloned timeline-item-template entries injected here -->
+      </div>
+    </section>
+
+    <!-- 03 · EDUCATION -->
+    <section id="education" class="sheet" data-sheet="03" aria-labelledby="education-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">03</span> — EDUCATION</p>
+        <h2 id="education-heading">Education</h2>
+      </div>
+      <div class="timeline" id="education-timeline" data-repeat="education" data-template="timeline-item-template"></div>
+    </section>
+
+    <!-- 04 · EXPERIENCE -->
+    <section id="experience" class="sheet" data-sheet="04" aria-labelledby="experience-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">04</span> — EXPERIENCE</p>
+        <h2 id="experience-heading">Experience</h2>
+      </div>
+      <div class="timeline" id="experience-timeline" data-repeat="experience" data-template="timeline-item-template"></div>
+    </section>
+
+    <!-- 05 · INTERNSHIP -->
+    <section id="internship" class="sheet" data-sheet="05" aria-labelledby="internship-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">05</span> — INTERNSHIP</p>
+        <h2 id="internship-heading">Current Internship</h2>
+      </div>
+      <div class="internship-card">
+        <div class="internship-meta mono">
+          <span data-bind="internship.company"></span>
+          <span data-bind="internship.duration"></span>
+        </div>
+        <h3 data-bind="internship.role"></h3>
+        <p data-bind="internship.description"></p>
+        <ul class="internship-highlights" id="internship-highlights" data-repeat="internship.highlights" data-template="highlight-item-template"></ul>
+      </div>
+    </section>
+
+    <!-- 06 · PROJECTS -->
+    <section id="projects" class="sheet" data-sheet="06" aria-labelledby="projects-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">06</span> — PROJECTS</p>
+        <h2 id="projects-heading">Selected Projects</h2>
+      </div>
+      <div class="project-filters mono" id="project-filters" role="group" aria-label="Filter projects by discipline">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="mechanical">Mechanical</button>
+        <button class="filter-btn" data-filter="electronics">Electronics</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+      </div>
+      <div class="project-grid" id="project-grid" data-repeat="projects" data-template="project-card-template"></div>
+    </section>
+
+    <!-- 07 · SKILLS -->
+    <section id="skills" class="sheet" data-sheet="07" aria-labelledby="skills-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">07</span> — SKILLS</p>
+        <h2 id="skills-heading">Skills</h2>
+      </div>
+      <div class="skills-grid" id="skills-grid" data-repeat="skills" data-template="skill-category-template"></div>
+    </section>
+
+    <!-- 08 · ACHIEVEMENTS -->
+    <section id="achievements" class="sheet" data-sheet="08" aria-labelledby="achievements-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">08</span> — ACHIEVEMENTS</p>
+        <h2 id="achievements-heading">Achievements</h2>
+      </div>
+      <div class="achievements-grid" id="achievements-grid" data-repeat="achievements" data-template="achievement-card-template"></div>
+    </section>
+
+    <!-- 09 · CERTIFICATIONS -->
+    <section id="certifications" class="sheet" data-sheet="09" aria-labelledby="certifications-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">09</span> — CERTIFICATIONS</p>
+        <h2 id="certifications-heading">Certifications</h2>
+      </div>
+      <div class="certifications-grid" id="certifications-grid" data-repeat="certifications" data-template="certification-card-template"></div>
+    </section>
+
+    <!-- 10 · GALLERY -->
+    <section id="gallery" class="sheet" data-sheet="10" aria-labelledby="gallery-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">10</span> — GALLERY</p>
+        <h2 id="gallery-heading">Gallery</h2>
+      </div>
+      <div class="gallery-grid" id="gallery-grid" data-repeat="gallery" data-template="gallery-item-template"></div>
+    </section>
+
+    <!-- 11 · RESUME -->
+    <section id="resume" class="sheet" data-sheet="11" aria-labelledby="resume-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">11</span> — RÉSUMÉ</p>
+        <h2 id="resume-heading">Résumé</h2>
+      </div>
+      <div class="resume-panel">
+        <div class="resume-preview">
+          <img src="assets/images/resume-thumb.jpg" alt="Résumé preview" data-bind-src="personal.resumeThumbnail">
+        </div>
+        <div class="resume-details">
+          <p class="resume-blurb" data-bind="resume.blurb"></p>
+          <dl class="resume-facts mono">
+            <div><dt>University</dt><dd data-bind="personal.university"></dd></div>
+            <div><dt>CGPA</dt><dd data-bind="personal.cgpa"></dd></div>
+            <div><dt>Graduating</dt><dd data-bind="personal.graduationYear"></dd></div>
+          </dl>
+          <a class="btn btn-primary" data-bind-href="personal.resumeUrl" download>
+            <i class="fa-solid fa-download"></i> Download Résumé
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CONTACT -->
+    <section id="contact" class="sheet" data-sheet="12" aria-labelledby="contact-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">12</span> — CONTACT</p>
+        <h2 id="contact-heading">Get in Touch</h2>
+      </div>
+
+      <div class="contact-grid">
+        <form id="contact-form" class="contact-form" novalidate>
+          <!-- honeypot: hidden from real users via CSS, bots tend to fill every field -->
+          <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off">
+          <!-- EmailJS wiring + public key location documented in js/script.js (Phase 4) and README.md -->
+          <div class="form-row">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="from_name" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="reply_to" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status mono" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact-info">
+          <p class="contact-blurb" data-bind="contact.blurb"></p>
+          <a class="contact-email mono" data-bind-href="social.emailHref">
+            <i class="fa-solid fa-envelope"></i>
+            <span data-bind="personal.emailDisplay"></span>
+          </a>
+          <dl class="contact-meta mono">
+            <div><dt>Location</dt><dd data-bind="personal.location"></dd></div>
+            <div><dt>Status</dt><dd data-bind="personal.status"></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="footer-mark mono" data-bind="personal.name"></div>
+    <div class="footer-right">
+      <div class="footer-social" aria-label="Social links">
+        <a data-bind-href="social.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a data-bind-href="social.github" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a data-bind-href="social.instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a data-bind-href="social.emailHref" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <p class="footer-copyright mono">© <span id="footer-year"></span> SIBSANKAR MONDAL — REV 03</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ============ LIGHTBOX (gallery + certifications) ============ -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    <p id="lightbox-caption" class="lightbox-caption mono"></p>
+  </div>
+
+  <!-- ============ TEMPLATES (cloned by js/script.js) ============ -->
+
+  <template id="timeline-item-template">
+    <div class="timeline-item">
+      <div class="timeline-node" aria-hidden="true"></div>
+      <p class="timeline-date mono" data-field="date"></p>
+      <h3 class="timeline-title" data-field="title"></h3>
+      <p class="timeline-subtitle" data-field="subtitle"></p>
+      <p class="timeline-description" data-field="description"></p>
+    </div>
+  </template>
+
+  <template id="highlight-item-template">
+    <li data-field="text"></li>
+  </template>
+
+  <template id="project-card-template">
+    <article class="project-card" data-discipline="">
+      <a class="project-card-link" data-field-href="detailUrl">
+        <div class="project-card-media">
+          <img data-field-src="coverImage" data-field-alt="title" src="" alt="">
+        </div>
+        <div class="project-card-body">
+          <p class="eyebrow mono" data-field="role"></p>
+          <h3 data-field="title"></h3>
+          <p data-field="shortDescription"></p>
+          <div class="project-card-tags" data-field-list="tags"></div>
+        </div>
+      </a>
+    </article>
+  </template>
+
+  <template id="skill-category-template">
+    <div class="skill-card" data-discipline="">
+      <i class="skill-icon" data-field-icon="icon"></i>
+      <h3 data-field="category"></h3>
+      <div class="skill-tags" data-field-list="items"></div>
+    </div>
+  </template>
+
+  <template id="achievement-card-template">
+    <div class="achievement-card">
+      <i class="achievement-icon" data-field-icon="icon"></i>
+      <p class="achievement-date mono" data-field="date"></p>
+      <h3 data-field="title"></h3>
+      <p data-field="description"></p>
+    </div>
+  </template>
+
+  <template id="certification-card-template">
+    <div class="certification-card">
+      <img data-field-src="image" data-field-alt="title" src="" alt="">
+      <div class="certification-body">
+        <h3 data-field="title"></h3>
+        <p class="mono" data-field="issuer"></p>
+        <p class="mono" data-field="date"></p>
+      </div>
+    </div>
+  </template>
+
+  <template id="gallery-item-template">
+    <button class="gallery-item">
+      <img data-field-src="image" data-field-alt="caption" src="" alt="">
+    </button>
+  </template>
+
+  <!-- ============ SCRIPTS ============ -->
+  <!-- Web3Forms needs no SDK — script.js submits the form via fetch(). Your access key goes in js/config.js. -->
+  <script src="js/config.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

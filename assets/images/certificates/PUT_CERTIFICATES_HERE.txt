@@ -1,0 +1,1 @@
+Put certification images here, then update certifications[] in js/config.js

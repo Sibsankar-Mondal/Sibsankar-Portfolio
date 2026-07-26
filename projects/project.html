@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="project-title-tag">Project — Sibsankar Mondal</title>
+  <meta name="description" id="project-description-tag" content="Project detail — Sibsankar Mondal">
+
+  <meta name="theme-color" content="#0A0B0E">
+
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="project-detail-body">
+
+  <a href="#project-main" class="skip-link">Skip to content</a>
+
+  <!-- ============ COMPACT TITLE BLOCK (project pages use a slimmer header, not the full sidebar) ============ -->
+  <header class="title-block title-block--compact">
+    <a href="../index.html#home" class="mark mono">S.M.</a>
+    <a href="../index.html#projects" class="back-link mono">
+      <i class="fa-solid fa-arrow-left"></i> All Projects
+    </a>
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="scroll-progress"></div>
+    </div>
+  </header>
+
+  <main id="project-main">
+
+    <!-- PROJECT HERO -->
+    <section class="project-hero">
+      <div class="project-hero-media">
+        <img id="project-cover-image" src="" alt="" fetchpriority="high" decoding="async">
+      </div>
+      <div class="project-hero-content">
+        <p class="eyebrow mono" id="project-role"></p>
+        <h1 id="project-title"></h1>
+        <p class="project-hero-summary" id="project-short-description"></p>
+        <div class="project-tags mono" id="project-tags"></div>
+        <div class="project-links" id="project-links">
+          <!-- GitHub / Docs / Demo buttons injected by project-render.js based on config.projects[x].links -->
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
+    <section class="project-section" id="project-overview-section">
+      <p class="eyebrow mono">01 — OVERVIEW</p>
+      <div id="project-overview"></div>
+    </section>
+
+    <!-- PROBLEM STATEMENT -->
+    <section class="project-section" id="project-problem-section">
+      <p class="eyebrow mono">02 — PROBLEM STATEMENT</p>
+      <div id="project-problem"></div>
+    </section>
+
+    <!-- DESIGN PROCESS -->
+    <section class="project-section" id="project-design-process-section">
+      <p class="eyebrow mono">03 — DESIGN PROCESS</p>
+      <div id="project-design-process"></div>
+    </section>
+
+    <!-- CAD MODELS -->
+    <section class="project-section" id="project-cad-section">
+      <p class="eyebrow mono">04 — CAD MODELS</p>
+      <div id="project-cad-text"></div>
+      <div class="project-media-grid" id="project-cad-gallery"></div>
+    </section>
+
+    <!-- MANUFACTURING -->
+    <section class="project-section" id="project-manufacturing-section">
+      <p class="eyebrow mono">05 — MANUFACTURING</p>
+      <div id="project-manufacturing-text"></div>
+      <div class="project-media-grid" id="project-manufacturing-gallery"></div>
+    </section>
+
+    <!-- ELECTRONICS -->
+    <section class="project-section" id="project-electronics-section">
+      <p class="eyebrow mono">06 — ELECTRONICS</p>
+      <div id="project-electronics-text"></div>
+      <div class="project-media-grid" id="project-electronics-gallery"></div>
+    </section>
+
+    <!-- CHALLENGES -->
+    <section class="project-section" id="project-challenges-section">
+      <p class="eyebrow mono">07 — CHALLENGES</p>
+      <div id="project-challenges"></div>
+    </section>
+
+    <!-- ITERATIONS -->
+    <section class="project-section" id="project-iterations-section">
+      <p class="eyebrow mono">08 — ITERATIONS</p>
+      <div id="project-iterations"></div>
+    </section>
+
+    <!-- FINAL SOLUTION -->
+    <section class="project-section" id="project-final-solution-section">
+      <p class="eyebrow mono">09 — FINAL SOLUTION</p>
+      <div id="project-final-solution"></div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="project-section" id="project-gallery-section">
+      <p class="eyebrow mono">10 — GALLERY</p>
+      <div class="project-media-grid" id="project-gallery"></div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="project-section" id="project-videos-section">
+      <p class="eyebrow mono">11 — VIDEOS</p>
+      <div class="project-video-grid" id="project-videos"></div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section class="project-section" id="project-downloads-section">
+      <p class="eyebrow mono">12 — DOWNLOADS</p>
+      <ul class="project-downloads" id="project-downloads"></ul>
+    </section>
+
+    <!-- PREV / NEXT -->
+    <nav class="project-pagination mono" aria-label="More projects">
+      <a id="project-prev" class="project-pagination-link" href="#">
+        <i class="fa-solid fa-arrow-left"></i> <span></span>
+      </a>
+      <a id="project-next" class="project-pagination-link" href="#">
+        <span></span> <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-mark mono">SIBSANKAR MONDAL</div>
+    <p class="footer-copyright mono">© <span id="footer-year"></span> — REV 03</p>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ============ LIGHTBOX (reused on project pages for CAD/manufacturing/gallery media) ============ -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+    <img id="lightbox-image" src="" alt="">
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+    <p id="lightbox-caption" class="lightbox-caption mono"></p>
+  </div>
+
+  <!-- ============ SCRIPTS ============ -->
+  <script src="../js/config.js" defer></script>
+  <script src="../js/script.js" defer></script>
+  <!-- project-render.js reads ?slug= from the URL, finds the matching entry in CONFIG.projects,
+       and populates every element above. Built in Phase 4. -->
+  <script src="../js/project-render.js" defer></script>
+</body>
+</html>

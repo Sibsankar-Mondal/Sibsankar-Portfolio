@@ -1,0 +1,1 @@
+Put project cover/CAD/manufacturing/electronics/gallery images here, then update the matching paths in js/config.js

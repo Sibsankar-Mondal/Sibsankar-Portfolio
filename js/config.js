@@ -107,38 +107,61 @@ const CONFIG = {
   --------------------------------------------------------------------- */
   experience: [
     {
-      date: 'May 2025 — Present',
-      title: 'Hardware Team Member',
-      subtitle: 'JU Mechatronics Club',
-      description:
-        'CAD, robotics hardware, sensors/actuators and mechanical integration across club subsystems and autonomous-systems builds. Previously led Team Falcon, the club\u2019s autonomous ornithopter project.',
+      company: 'METNMAT Research & Innovations',
+      logo: 'assets/images/logos/metnmat.png', // ⚠ ADD this image file
+      icon: 'fa-solid fa-industry', // fallback icon if no logo
+      roles: [
+        {
+          title: 'Mechanical Engineering Intern',
+          date: 'May 2026 — Present',
+          location: 'Howrah, West Bengal, India · On-site',
+          description:
+            'Working as a Mechanical Engineering Intern at METNMAT Innovations, a company focused on driving innovations in sustainable energy...', // ⚠ COMPLETE — LinkedIn text was cut off
+        },
+      ],
     },
     {
-      date: 'Sep 2025 — Present',
-      title: 'Chassis & Fabrication Team Member',
-      subtitle: 'JU Motorsports Club — Team XLR8',
-      description:
-        'Vehicle assembly, chassis manufacturing, fabrication and performance testing.',
+      company: 'JU Mechatronics Club',
+      logo: 'assets/images/logos/mechatronics-club.png', // ⚠ ADD
+      icon: 'fa-solid fa-microchip',
+      roles: [
+        {
+          title: 'Hardware Team Member',
+          date: 'May 2025 — Present',
+          description:
+            "As part of the Hardware Team at JU Mechatronics Club, I contribute to the design, development, and integration of mechanical and electronic systems for robotics and automation projects, including the team's...", // ⚠ COMPLETE
+        },
+        {
+          title: 'Project Lead, Team Falcon',
+          date: 'Jun 2025 — Feb 2026',
+          description:
+            'Led Team Falcon in designing and developing a bio-inspired ornithopter capable of flight, navigation, and aerial monitoring. Responsible for coordinating the mechanical design, prototyping, and testing process...', // ⚠ COMPLETE
+        },
+      ],
+    },
+    {
+      company: 'Team XLR8 — JU Motorsports Club',
+      logo: 'assets/images/logos/xlr8.png', // ⚠ ADD
+      icon: 'fa-solid fa-car',
+      roles: [
+        {
+          title: 'Chassis Subteam',
+          date: 'Dec 2025 — Present',
+          description: '', // ⚠ ADD if you want a description here
+        },
+        {
+          title: 'Technical Team Member',
+          date: 'Aug 2025 — Jan 2026',
+          description: '',
+        },
+      ],
     },
   ],
-
   /* ---------------------------------------------------------------------
      INTERNSHIP
      ⚠ "Summer 2026" is a placeholder for the exact start month — confirm.
   --------------------------------------------------------------------- */
-  internship: {
-    company: 'METNMAT Innovations Pvt. Ltd.',
-    role: 'Mechanical Engineering Intern',
-    duration: 'Summer 2026 · 3 months', // ⚠ REPLACE with exact start month
-    description:
-      'Real product design work in SolidWorks, spanning new-product development, failure diagnosis and cost engineering on existing lines.',
-    highlights: [
-      'Designed an injection-moulded data logger housing in SolidWorks — passed validation and was signed off for mass production.',
-      'Diagnosed a corrosion failure on an electrolyzer\u2019s pneumatic system and designed the replacement fitting.',
-      'Worked on piping and routing for an experimental gallium-extraction setup.',
-      'Ran cost-reduction redesigns on existing products.',
-    ],
-  },
+  
 
   /* ---------------------------------------------------------------------
      PROJECTS
@@ -257,45 +280,71 @@ const CONFIG = {
     },
   ],
 
-  /* ---------------------------------------------------------------------
+ /* ---------------------------------------------------------------------
      SKILLS
+     ⚠ REPLACE the `level` numbers (0-10) below — only you know your real
+     proficiency in each one. The bar length + number badge on the site
+     are driven directly by this number, per individual skill.
   --------------------------------------------------------------------- */
   skills: [
     {
       category: 'CAD',
       icon: 'fa-solid fa-cube',
-      discipline: 'mechanical',
-      items: ['SolidWorks', 'Siemens NX', 'AutoCAD'],
+      items: [
+        { name: 'SolidWorks', level: 9 },
+        { name: 'Siemens NX', level: 7 },
+        { name: 'AutoCAD', level: 8 },
+      ],
     },
     {
       category: 'Manufacturing',
       icon: 'fa-solid fa-industry',
-      discipline: 'mechanical',
-      items: ['GD&T', 'Fabrication', 'Rapid Prototyping', 'Assembly', 'Testing', 'Quality Control'],
+      items: [
+        { name: 'GD&T', level: 7 },
+        { name: 'Fabrication', level: 7 },
+        { name: 'Rapid Prototyping', level: 8 },
+        { name: 'Assembly', level: 7 },
+        { name: 'Testing', level: 6 },
+        { name: 'Quality Control', level: 6 },
+      ],
     },
     {
       category: 'Engineering Fundamentals',
       icon: 'fa-solid fa-gauge-high',
-      discipline: 'mechanical',
-      items: ['Thermodynamics', 'Fluid Mechanics', 'Supply Chain Management'],
+      items: [
+        { name: 'Thermodynamics', level: 7 },
+        { name: 'Fluid Mechanics', level: 7 },
+        { name: 'Supply Chain Management', level: 6 },
+      ],
     },
     {
       category: 'Robotics & Electronics',
       icon: 'fa-solid fa-robot',
-      discipline: 'electronics',
-      items: ['Arduino', 'Raspberry Pi', 'Sensors', 'Actuators', 'Basic Circuits'],
+      items: [
+        { name: 'Arduino', level: 7 },
+        { name: 'Raspberry Pi', level: 6 },
+        { name: 'Sensors', level: 6 },
+        { name: 'Actuators', level: 6 },
+        { name: 'Basic Circuits', level: 6 },
+      ],
     },
     {
       category: 'Programming',
       icon: 'fa-solid fa-code',
-      discipline: 'software',
-      items: ['Python', 'C', 'C++'],
+      items: [
+        { name: 'Python', level: 7 },
+        { name: 'C', level: 6 },
+        { name: 'C++', level: 6 },
+      ],
     },
     {
       category: 'Software',
       icon: 'fa-solid fa-chart-line',
-      discipline: 'software',
-      items: ['ANSYS (FEA)', 'SolidWorks Simulation', 'Git'],
+      items: [
+        { name: 'ANSYS (FEA)', level: 7 },
+        { name: 'SolidWorks Simulation', level: 7 },
+        { name: 'Git', level: 6 },
+      ],
     },
   ],
 

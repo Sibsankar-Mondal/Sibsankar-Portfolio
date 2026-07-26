@@ -62,7 +62,7 @@
     </div>
 
     <div class="title-block-meta mono">
-      <span class="sheet-counter">SHEET <span id="current-sheet">01</span>/12</span>
+      <span class="sheet-counter">SHEET <span id="current-sheet">01</span>/11</span>
       <div class="progress-track" aria-hidden="true">
         <div class="progress-fill" id="scroll-progress"></div>
       </div>
@@ -72,16 +72,15 @@
       <ul>
         <li><a href="#home" data-sheet="01" class="nav-link"><span class="nav-index mono">01</span>Home</a></li>
         <li><a href="#about" data-sheet="02" class="nav-link"><span class="nav-index mono">02</span>About</a></li>
-        <li><a href="#education" data-sheet="03" class="nav-link"><span class="nav-index mono">03</span>Education</a></li>
-        <li><a href="#experience" data-sheet="04" class="nav-link"><span class="nav-index mono">04</span>Experience</a></li>
-        <li><a href="#internship" data-sheet="05" class="nav-link"><span class="nav-index mono">05</span>Internship</a></li>
-        <li><a href="#projects" data-sheet="06" class="nav-link"><span class="nav-index mono">06</span>Projects</a></li>
-        <li><a href="#skills" data-sheet="07" class="nav-link"><span class="nav-index mono">07</span>Skills</a></li>
-        <li><a href="#achievements" data-sheet="08" class="nav-link"><span class="nav-index mono">08</span>Achievements</a></li>
-        <li><a href="#certifications" data-sheet="09" class="nav-link"><span class="nav-index mono">09</span>Certifications</a></li>
-        <li><a href="#gallery" data-sheet="10" class="nav-link"><span class="nav-index mono">10</span>Gallery</a></li>
-        <li><a href="#resume" data-sheet="11" class="nav-link"><span class="nav-index mono">11</span>Résumé</a></li>
-        <li><a href="#contact" data-sheet="12" class="nav-link"><span class="nav-index mono">12</span>Contact</a></li>
+        <li><a href="#experience" data-sheet="03" class="nav-link"><span class="nav-index mono">03</span>Experience</a></li>
+        <li><a href="#education" data-sheet="04" class="nav-link"><span class="nav-index mono">04</span>Education</a></li>
+        <li><a href="#projects" data-sheet="05" class="nav-link"><span class="nav-index mono">05</span>Projects</a></li>
+        <li><a href="#skills" data-sheet="06" class="nav-link"><span class="nav-index mono">06</span>Skills</a></li>
+        <li><a href="#achievements" data-sheet="07" class="nav-link"><span class="nav-index mono">07</span>Achievements</a></li>
+        <li><a href="#certifications" data-sheet="08" class="nav-link"><span class="nav-index mono">08</span>Certifications</a></li>
+        <li><a href="#gallery" data-sheet="09" class="nav-link"><span class="nav-index mono">09</span>Gallery</a></li>
+        <li><a href="#resume" data-sheet="10" class="nav-link"><span class="nav-index mono">10</span>Résumé</a></li>
+        <li><a href="#contact" data-sheet="11" class="nav-link"><span class="nav-index mono">11</span>Contact</a></li>
       </ul>
     </nav>
 
@@ -175,45 +174,29 @@
       </div>
     </section>
 
-    <!-- 03 · EDUCATION -->
-    <section id="education" class="sheet" data-sheet="03" aria-labelledby="education-heading">
+     <!-- 03 · EXPERIENCE -->
+    <section id="experience" class="sheet" data-sheet="03" aria-labelledby="experience-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">03</span> — EDUCATION</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">03</span> — EXPERIENCE</p>
+        <h2 id="experience-heading">Experience</h2>
+      </div>
+      <div class="experience-list" id="experience-list"></div>
+    </section>
+
+    <!-- 04 · EDUCATION -->
+    <section id="education" class="sheet" data-sheet="04" aria-labelledby="education-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">04</span> — EDUCATION</p>
         <h2 id="education-heading">Education</h2>
       </div>
       <div class="timeline" id="education-timeline" data-repeat="education" data-template="timeline-item-template"></div>
     </section>
 
-    <!-- 04 · EXPERIENCE -->
-    <section id="experience" class="sheet" data-sheet="04" aria-labelledby="experience-heading">
-      <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">04</span> — EXPERIENCE</p>
-        <h2 id="experience-heading">Experience</h2>
-      </div>
-      <div class="timeline" id="experience-timeline" data-repeat="experience" data-template="timeline-item-template"></div>
-    </section>
 
-    <!-- 05 · INTERNSHIP -->
-    <section id="internship" class="sheet" data-sheet="05" aria-labelledby="internship-heading">
+    <!-- 05 · PROJECTS -->
+    <section id="projects" class="sheet" data-sheet="05" aria-labelledby="projects-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">05</span> — INTERNSHIP</p>
-        <h2 id="internship-heading">Current Internship</h2>
-      </div>
-      <div class="internship-card">
-        <div class="internship-meta mono">
-          <span data-bind="internship.company"></span>
-          <span data-bind="internship.duration"></span>
-        </div>
-        <h3 data-bind="internship.role"></h3>
-        <p data-bind="internship.description"></p>
-        <ul class="internship-highlights" id="internship-highlights" data-repeat="internship.highlights" data-template="highlight-item-template"></ul>
-      </div>
-    </section>
-
-    <!-- 06 · PROJECTS -->
-    <section id="projects" class="sheet" data-sheet="06" aria-labelledby="projects-heading">
-      <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">06</span> — PROJECTS</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">05</span> — PROJECTS</p>
         <h2 id="projects-heading">Selected Projects</h2>
       </div>
       <div class="project-filters mono" id="project-filters" role="group" aria-label="Filter projects by discipline">
@@ -225,46 +208,46 @@
       <div class="project-grid" id="project-grid" data-repeat="projects" data-template="project-card-template"></div>
     </section>
 
-    <!-- 07 · SKILLS -->
-    <section id="skills" class="sheet" data-sheet="07" aria-labelledby="skills-heading">
+    <!-- 06 · SKILLS -->
+    <section id="skills" class="sheet" data-sheet="06" aria-labelledby="skills-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">07</span> — SKILLS</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">06</span> — SKILLS</p>
         <h2 id="skills-heading">Skills</h2>
       </div>
       <div class="skills-grid" id="skills-grid" data-repeat="skills" data-template="skill-category-template"></div>
     </section>
 
-    <!-- 08 · ACHIEVEMENTS -->
-    <section id="achievements" class="sheet" data-sheet="08" aria-labelledby="achievements-heading">
+    <!-- 07 · ACHIEVEMENTS -->
+    <section id="achievements" class="sheet" data-sheet="07" aria-labelledby="achievements-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">08</span> — ACHIEVEMENTS</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">07</span> — ACHIEVEMENTS</p>
         <h2 id="achievements-heading">Achievements</h2>
       </div>
       <div class="achievements-grid" id="achievements-grid" data-repeat="achievements" data-template="achievement-card-template"></div>
     </section>
 
-    <!-- 09 · CERTIFICATIONS -->
-    <section id="certifications" class="sheet" data-sheet="09" aria-labelledby="certifications-heading">
+    <!-- 08 · CERTIFICATIONS -->
+    <section id="certifications" class="sheet" data-sheet="08" aria-labelledby="certifications-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">09</span> — CERTIFICATIONS</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">08</span> — CERTIFICATIONS</p>
         <h2 id="certifications-heading">Certifications</h2>
       </div>
       <div class="certifications-grid" id="certifications-grid" data-repeat="certifications" data-template="certification-card-template"></div>
     </section>
 
-    <!-- 10 · GALLERY -->
-    <section id="gallery" class="sheet" data-sheet="10" aria-labelledby="gallery-heading">
+    <!-- 09 · GALLERY -->
+    <section id="gallery" class="sheet" data-sheet="09" aria-labelledby="gallery-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">10</span> — GALLERY</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">09</span> — GALLERY</p>
         <h2 id="gallery-heading">Gallery</h2>
       </div>
       <div class="gallery-grid" id="gallery-grid" data-repeat="gallery" data-template="gallery-item-template"></div>
     </section>
 
-    <!-- 11 · RESUME -->
-    <section id="resume" class="sheet" data-sheet="11" aria-labelledby="resume-heading">
+    <!-- 10 · RESUME -->
+    <section id="resume" class="sheet" data-sheet="10" aria-labelledby="resume-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">11</span> — RÉSUMÉ</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">10</span> — RÉSUMÉ</p>
         <h2 id="resume-heading">Résumé</h2>
       </div>
       <div class="resume-panel">
@@ -285,10 +268,10 @@
       </div>
     </section>
 
-    <!-- 12 · CONTACT -->
-    <section id="contact" class="sheet" data-sheet="12" aria-labelledby="contact-heading">
+    <!-- 11 · CONTACT -->
+    <section id="contact" class="sheet" data-sheet="11" aria-labelledby="contact-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">12</span> — CONTACT</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">11</span> — CONTACT</p>
         <h2 id="contact-heading">Get in Touch</h2>
       </div>
 
@@ -399,10 +382,10 @@
   </template>
 
   <template id="skill-category-template">
-    <div class="skill-card" data-discipline="">
+    <div class="skill-card">
       <i class="skill-icon" data-field-icon="icon"></i>
       <h3 data-field="category"></h3>
-      <div class="skill-tags" data-field-list="items"></div>
+      <div class="skill-items"></div>
     </div>
   </template>
 

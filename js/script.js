@@ -13,7 +13,7 @@
      internship:{ company, role, duration, description, highlights:[text,...] },
      projects:  [{ slug, title, role, shortDescription, coverImage, tags:[],
                    discipline: 'mechanical'|'electronics'|'software', ...detail fields }],
-     skills:    [{ category, icon, discipline, items:[text,...] }],
+     skills:    [{ category, icon, items:[{ name, level }] }],  // level: 0-10 self-rating per skill
      achievements:  [{ icon, date, title, description }],
      certifications:[{ image, title, issuer, date }],
      gallery:   [{ image, caption }],
@@ -176,29 +176,115 @@
     document.querySelectorAll('[data-repeat]').forEach(renderRepeat);
   }
 
-  /* ---------- skills: group cards by discipline with labels ---------- */
+ /* ---------- skills: build a level bar for each item inside its category card ---------- */
 
-  function groupSkillCards() {
-    const grid = document.getElementById('skills-grid');
-    if (!grid) return;
-    const labels = {
-      mechanical: 'MECHANICAL',
-      electronics: 'ELECTRONICS & ROBOTICS',
-      software: 'SOFTWARE & PROGRAMMING',
-    };
-    let lastDiscipline = null;
-    Array.from(grid.children).forEach((card) => {
-      const discipline = card.getAttribute('data-discipline');
-      if (discipline && discipline !== lastDiscipline) {
-        const header = document.createElement('div');
-        header.className = 'skills-group-label mono';
-        header.textContent = labels[discipline] || discipline.toUpperCase();
-        grid.insertBefore(header, card);
-        lastDiscipline = discipline;
+  function renderSkillItems() {
+    if (!hasConfig() || !Array.isArray(CONFIG.skills)) return;
+    const cards = document.querySelectorAll('#skills-grid .skill-card');
+    cards.forEach((card, i) => {
+      const category = CONFIG.skills[i];
+      const container = card.querySelector('.skill-items');
+      if (!category || !container || !Array.isArray(category.items)) return;
+
+      container.innerHTML = '';
+      category.items.forEach((skill) => {
+        const level = Math.max(0, Math.min(10, Number(skill.level) || 0));
+        const pct = (level / 10) * 100;
+
+        const row = document.createElement('div');
+        row.className = 'skill-item';
+
+        const top = document.createElement('div');
+        top.className = 'skill-item-top';
+
+        const name = document.createElement('span');
+        name.className = 'skill-item-name';
+        name.textContent = skill.name;
+
+        const value = document.createElement('span');
+        value.className = 'skill-item-value';
+        value.textContent = level;
+
+        top.append(name, value);
+
+        const track = document.createElement('div');
+        track.className = 'skill-item-track';
+        const fill = document.createElement('div');
+        fill.className = 'skill-item-fill';
+        track.appendChild(fill);
+
+        row.append(top, track);
+        container.appendChild(row);
+
+        requestAnimationFrame(() => { fill.style.width = `${pct}%`; });
+      });
+    });
+  }
+  function renderExperience() {
+    const container = document.getElementById('experience-list');
+    if (!container || !hasConfig() || !Array.isArray(CONFIG.experience)) return;
+
+    container.innerHTML = '';
+
+    CONFIG.experience.forEach((entry) => {
+      const roles = entry.roles || [];
+      const card = document.createElement('div');
+      card.className = 'experience-company reveal';
+
+      const logoHtml = entry.logo
+        ? `<img class="experience-logo-img" src="${entry.logo}" alt="${entry.company} logo">
+           <div class="experience-logo experience-logo--fallback"><i class="${entry.icon || 'fa-solid fa-building'}"></i></div>`
+        : `<div class="experience-logo"><i class="${entry.icon || 'fa-solid fa-building'}"></i></div>`;
+
+      const roleMeta = (role) => `${role.date}${role.location ? ' · ' + role.location : ''}`;
+
+      if (roles.length > 1) {
+        card.innerHTML = `
+          <div class="experience-company-header">
+            ${logoHtml}
+            <div>
+              <h3 class="experience-company-name">${entry.company}</h3>
+              <p class="experience-company-range mono">${roles.length} POSITIONS</p>
+            </div>
+          </div>
+          <div class="experience-roles">
+            ${roles.map((role) => `
+              <div class="experience-role">
+                <div class="experience-role-node" aria-hidden="true"></div>
+                <div class="experience-role-body">
+                  <h4 class="experience-role-title">${role.title}</h4>
+                  <p class="experience-role-date mono">${roleMeta(role)}</p>
+                  <p class="experience-role-description">${role.description || ''}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>`;
+      } else if (roles.length === 1) {
+        const role = roles[0];
+        card.innerHTML = `
+          <div class="experience-company-header">
+            ${logoHtml}
+            <div>
+              <h3 class="experience-company-name">${role.title}</h3>
+              <p class="experience-company-sub">${entry.company}</p>
+              <p class="experience-company-range mono">${roleMeta(role)}</p>
+            </div>
+          </div>
+          <p class="experience-role-description experience-role-description--single">${role.description || ''}</p>`;
+      }
+
+      container.appendChild(card);
+
+      const logoImg = card.querySelector('.experience-logo-img');
+      if (logoImg) {
+        const fallback = card.querySelector('.experience-logo--fallback');
+        logoImg.addEventListener('error', () => {
+          logoImg.style.display = 'none';
+          if (fallback) fallback.style.display = 'flex';
+        });
       }
     });
   }
-
   /* ---------- loading screen ---------- */
 
   function initLoadingScreen() {
@@ -292,7 +378,7 @@
   function markRevealTargets() {
     document
       .querySelectorAll(
-        '.timeline-item, .project-card, .skill-card, .skills-group-label, .achievement-card, .certification-card, .gallery-item, .internship-card, .about-grid > *, .section-header, .project-section'
+          '.timeline-item, .project-card, .skill-card, .achievement-card, .certification-card, .gallery-item, .internship-card, .about-grid > *, .section-header, .project-section'
       )
       .forEach((el) => el.classList.add('reveal'));
   }
@@ -645,7 +731,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     hydrateStaticBindings();
     renderAllRepeats();
-    groupSkillCards();
+    renderExperience();
+    renderSkillItems();
 
     initLoadingScreen();
     initMobileNav();

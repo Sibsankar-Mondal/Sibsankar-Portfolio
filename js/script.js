@@ -8,17 +8,18 @@
      personal:  { name, initials, status, photo, resumeUrl, resumeThumbnail },
      hero:      { eyebrow, masthead, subhead },
      about:     { story, philosophy, timeline: [{date,title,subtitle,description}] },
-     education: [{date,title,subtitle,description}],
-     experience:[{date,title,subtitle,description}],
-     internship:{ company, role, duration, description, highlights:[text,...] },
+     education: [{date,title,subtitle,description,logo?,url?}],
+     experience:[{ company, logo?, icon, url?,
+                   roles: [{ title, date, location?, description }] }],  // 1 role = simple card, 2+ = grouped LinkedIn-style
      projects:  [{ slug, title, role, shortDescription, coverImage, tags:[],
                    discipline: 'mechanical'|'electronics'|'software', ...detail fields }],
-     skills:    [{ category, icon, items:[{ name, level }] }],  // level: 0-10 self-rating per skill
+     skills:    [{ category, icon, discipline, items:[{ name, level }] }],  // level: 0-10 self-rating per skill
      achievements:  [{ icon, date, title, description }],
+     mentorship:    [{ icon, date, title, description }],  // same card shape as achievements
      certifications:[{ image, title, issuer, date }],
      gallery:   [{ image, caption }],
      social:    { linkedin, github, instagram, emailHref },
-     contact:   { emailjsServiceId, emailjsTemplateId, emailjsPublicKey }
+     contact:   { blurb, web3formsAccessKey }
    }
 
    Nothing in this file should ever need editing to update site content —
@@ -118,7 +119,14 @@
 
     queryIncludingSelf(root, '[data-field-src]').forEach((el) => {
       const key = el.getAttribute('data-field-src');
-      if (item[key]) el.src = item[key];
+      if (item[key]) {
+        el.src = item[key];
+        if (el.classList.contains('timeline-logo')) {
+          el.style.display = 'block';
+          const node = root.querySelector('.timeline-node');
+          if (node) node.style.display = 'none';
+        }
+      }
       const altKey = el.getAttribute('data-field-alt');
       if (altKey && item[altKey]) el.alt = item[altKey];
       if (el.tagName === 'IMG') {
@@ -174,6 +182,29 @@
   function renderAllRepeats() {
     if (!hasConfig()) return;
     document.querySelectorAll('[data-repeat]').forEach(renderRepeat);
+  }
+
+ /* ---------- skills: group cards by discipline with labels ---------- */
+
+  function groupSkillCards() {
+    const grid = document.getElementById('skills-grid');
+    if (!grid) return;
+    const labels = {
+      mechanical: 'MECHANICAL',
+      electronics: 'ELECTRONICS & ROBOTICS',
+      software: 'SOFTWARE & PROGRAMMING',
+    };
+    let lastDiscipline = null;
+    Array.from(grid.children).forEach((card) => {
+      const discipline = card.getAttribute('data-discipline');
+      if (discipline && discipline !== lastDiscipline) {
+        const header = document.createElement('div');
+        header.className = 'skills-group-label mono';
+        header.textContent = labels[discipline] || discipline.toUpperCase();
+        grid.insertBefore(header, card);
+        lastDiscipline = discipline;
+      }
+    });
   }
 
  /* ---------- skills: build a level bar for each item inside its category card ---------- */
@@ -236,6 +267,10 @@
            <div class="experience-logo experience-logo--fallback"><i class="${entry.icon || 'fa-solid fa-building'}"></i></div>`
         : `<div class="experience-logo"><i class="${entry.icon || 'fa-solid fa-building'}"></i></div>`;
 
+      const companyLabel = entry.url
+        ? `<a class="experience-company-link" href="${entry.url}" target="_blank" rel="noopener">${entry.company} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+        : entry.company;
+
       const roleMeta = (role) => `${role.date}${role.location ? ' · ' + role.location : ''}`;
 
       if (roles.length > 1) {
@@ -243,7 +278,7 @@
           <div class="experience-company-header">
             ${logoHtml}
             <div>
-              <h3 class="experience-company-name">${entry.company}</h3>
+              <h3 class="experience-company-name">${companyLabel}</h3>
               <p class="experience-company-range mono">${roles.length} POSITIONS</p>
             </div>
           </div>
@@ -266,7 +301,7 @@
             ${logoHtml}
             <div>
               <h3 class="experience-company-name">${role.title}</h3>
-              <p class="experience-company-sub">${entry.company}</p>
+              <p class="experience-company-sub">${companyLabel}</p>
               <p class="experience-company-range mono">${roleMeta(role)}</p>
             </div>
           </div>
@@ -378,7 +413,7 @@
   function markRevealTargets() {
     document
       .querySelectorAll(
-          '.timeline-item, .project-card, .skill-card, .achievement-card, .certification-card, .gallery-item, .internship-card, .about-grid > *, .section-header, .project-section'
+          '.timeline-item, .project-card, .skill-card, .skills-group-label, .achievement-card, .certification-card, .gallery-item, .about-grid > *, .section-header, .project-section'
       )
       .forEach((el) => el.classList.add('reveal'));
   }
@@ -398,26 +433,6 @@
       { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
     );
     revealables.forEach((el) => observer.observe(el));
-  }
-
-  /* ---------- project filters ---------- */
-
-  function initProjectFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
-    const grid = document.getElementById('project-grid');
-    if (!buttons.length || !grid) return;
-
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        grid.querySelectorAll('.project-card').forEach((card) => {
-          const match = filter === 'all' || card.getAttribute('data-discipline') === filter;
-          card.style.display = match ? '' : 'none';
-        });
-      });
-    });
   }
 
   /* ---------- back to top ---------- */
@@ -486,6 +501,105 @@
   }
 
   /* ---------- hero cursor coordinate readout (desktop, motion-safe only) ---------- */
+
+  /* ---------- background spotlight (follows cursor, desktop + motion-safe only) ---------- */
+
+  function initBackgroundSpotlight() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const root = document.documentElement;
+    let ticking = false;
+    let lastX = window.innerWidth / 2;
+    let lastY = window.innerHeight * 0.3;
+
+    function apply() {
+      root.style.setProperty('--spotlight-x', `${lastX}px`);
+      root.style.setProperty('--spotlight-y', `${lastY}px`);
+      ticking = false;
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      lastX = e.clientX;
+      lastY = e.clientY;
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(apply);
+      }
+    });
+  }
+
+  /* ---------- custom cursor (desktop + motion-safe only) ---------- */
+
+  function initCustomCursor() {
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    const ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.append(dot, ring);
+    document.body.classList.add('custom-cursor-active');
+
+    const root = document.documentElement;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    const setVar = (name, val) => root.style.setProperty(name, `${val}px`);
+    setVar('--cursor-x', mouseX);
+    setVar('--cursor-y', mouseY);
+    setVar('--ring-x', ringX);
+    setVar('--ring-y', ringY);
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      setVar('--cursor-x', mouseX);
+      setVar('--cursor-y', mouseY);
+    });
+
+    function tick() {
+      ringX += (mouseX - ringX) * 0.2;
+      ringY += (mouseY - ringY) * 0.2;
+      setVar('--ring-x', ringX);
+      setVar('--ring-y', ringY);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    const textInputSelector = 'input, textarea';
+    const interactiveSelector =
+      'a, button, .btn, [role="button"], .project-card, .skill-card, .achievement-card, .certification-card, .gallery-item, .nav-link, .filter-btn, .hero-photo';
+
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(textInputSelector)) {
+        dot.classList.add('is-hidden');
+        ring.classList.add('is-hidden');
+      } else if (e.target.closest(interactiveSelector)) {
+        ring.classList.add('is-active');
+      }
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(textInputSelector)) {
+        dot.classList.remove('is-hidden');
+        ring.classList.remove('is-hidden');
+      } else if (e.target.closest(interactiveSelector)) {
+        ring.classList.remove('is-active');
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      dot.classList.add('is-hidden');
+      ring.classList.add('is-hidden');
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.classList.remove('is-hidden');
+      ring.classList.remove('is-hidden');
+    });
+  }
 
   function initHeroCursorReadout() {
     const hero = document.querySelector('.hero');
@@ -731,16 +845,18 @@
   document.addEventListener('DOMContentLoaded', () => {
     hydrateStaticBindings();
     renderAllRepeats();
+    groupSkillCards();
     renderExperience();
     renderSkillItems();
 
     initLoadingScreen();
     initMobileNav();
     initScrollSpyAndProgress();
-    initProjectFilters();
     initBackToTop();
     initHeroPhotoFallback();
     initTypewriterEyebrow();
+    initBackgroundSpotlight();
+    initCustomCursor();
     initHeroCursorReadout();
     initLightboxControls();
     initGalleryLightbox();

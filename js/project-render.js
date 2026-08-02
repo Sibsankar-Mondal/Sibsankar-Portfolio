@@ -75,15 +75,18 @@
     el.innerHTML = '';
     const items = images.map(normalizeMediaItem);
     items.forEach((item, index) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'project-media-item';
       const imgEl = document.createElement('img');
       imgEl.src = item.src;
       imgEl.alt = item.caption || '';
       imgEl.loading = 'lazy';
       imgEl.decoding = 'async';
-      imgEl.addEventListener('click', () => {
+      wrapper.addEventListener('click', () => {
         if (typeof window.__openLightbox === 'function') window.__openLightbox(items, index);
       });
-      el.appendChild(imgEl);
+      wrapper.appendChild(imgEl);
+      el.appendChild(wrapper);
     });
   }
 

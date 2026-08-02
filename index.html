@@ -33,6 +33,13 @@
 </head>
 <body>
 
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-blob bg-blob--1"></div>
+    <div class="bg-blob bg-blob--2"></div>
+    <div class="bg-blob bg-blob--3"></div>
+    <div class="bg-spotlight"></div>
+  </div>
+
   <a href="#main-content" class="skip-link">Skip to content</a>
 
   <!-- ============ LOADING SCREEN ============ -->
@@ -62,7 +69,7 @@
     </div>
 
     <div class="title-block-meta mono">
-      <span class="sheet-counter">SHEET <span id="current-sheet">01</span>/11</span>
+      <span class="sheet-counter">SHEET <span id="current-sheet">01</span>/12</span>
       <div class="progress-track" aria-hidden="true">
         <div class="progress-fill" id="scroll-progress"></div>
       </div>
@@ -77,10 +84,11 @@
         <li><a href="#projects" data-sheet="05" class="nav-link"><span class="nav-index mono">05</span>Projects</a></li>
         <li><a href="#skills" data-sheet="06" class="nav-link"><span class="nav-index mono">06</span>Skills</a></li>
         <li><a href="#achievements" data-sheet="07" class="nav-link"><span class="nav-index mono">07</span>Achievements</a></li>
-        <li><a href="#certifications" data-sheet="08" class="nav-link"><span class="nav-index mono">08</span>Certifications</a></li>
-        <li><a href="#gallery" data-sheet="09" class="nav-link"><span class="nav-index mono">09</span>Gallery</a></li>
-        <li><a href="#resume" data-sheet="10" class="nav-link"><span class="nav-index mono">10</span>Résumé</a></li>
-        <li><a href="#contact" data-sheet="11" class="nav-link"><span class="nav-index mono">11</span>Contact</a></li>
+        <li><a href="#mentorship" data-sheet="08" class="nav-link"><span class="nav-index mono">08</span>Mentorship</a></li>
+        <li><a href="#certifications" data-sheet="09" class="nav-link"><span class="nav-index mono">09</span>Certifications</a></li>
+        <li><a href="#gallery" data-sheet="10" class="nav-link"><span class="nav-index mono">10</span>Gallery</a></li>
+        <li><a href="#resume" data-sheet="11" class="nav-link"><span class="nav-index mono">11</span>Résumé</a></li>
+        <li><a href="#contact" data-sheet="12" class="nav-link"><span class="nav-index mono">12</span>Contact</a></li>
       </ul>
     </nav>
 
@@ -109,21 +117,13 @@
         <div class="hero-photo-overlay" aria-hidden="true"></div>
       </div>
 
-      <svg class="hero-gear" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-        <polygon points="120.0,60.0 119.5,67.8 100.6,70.9 98.8,76.1 112.0,90.0 107.6,96.5 89.7,89.7 85.6,93.3 90.0,112.0 83.0,115.4 70.9,100.6 65.5,101.6 60.0,120.0 52.2,119.5 49.1,100.6 43.9,98.8 30.0,112.0 23.5,107.6 30.3,89.7 26.7,85.6 8.0,90.0 4.6,83.0 19.4,70.9 18.4,65.5 0.0,60.0 0.5,52.2 19.4,49.1 21.2,43.9 8.0,30.0 12.4,23.5 30.3,30.3 34.4,26.7 30.0,8.0 37.0,4.6 49.1,19.4 54.5,18.4 60.0,0.0 67.8,0.5 70.9,19.4 76.1,21.2 90.0,8.0 96.5,12.4 89.7,30.3 93.3,34.4 112.0,30.0 115.4,37.0 100.6,49.1 101.6,54.5"
-          fill="none" stroke="#E08A4B" stroke-width="1.5" stroke-linejoin="round" opacity="0.85" />
-        <circle cx="60" cy="60" r="34" fill="none" stroke="#8B93A1" stroke-width="0.75" opacity="0.5" />
-        <circle cx="60" cy="60" r="18" fill="none" stroke="#4FD1FF" stroke-width="1.5" opacity="0.9" />
-        <circle cx="60" cy="60" r="4" fill="#4FD1FF" opacity="0.7" />
-      </svg>
-
-      <div class="hero-badge hero-badge--copper" style="top: 21%; left: 6%; animation-duration: 5s;">
+      <div class="hero-badge hero-badge--copper" style="top: 6%; left: 6%; animation-duration: 5s;">
         <span class="dot"></span>MECHANISM DESIGN
       </div>
-      <div class="hero-badge hero-badge--argon" style="top: 31%; left: 6%; animation-duration: 6.5s; animation-delay: -1.5s;">
+      <div class="hero-badge hero-badge--argon" style="top: 17%; left: 6%; animation-duration: 6.5s; animation-delay: -1.5s;">
         <span class="dot"></span>SENSORS &amp; ACTUATORS
       </div>
-      <div class="hero-badge hero-badge--copper" style="top: 41%; left: 6%; animation-duration: 4.5s; animation-delay: -3s;">
+      <div class="hero-badge hero-badge--copper" style="top: 28%; left: 6%; animation-duration: 4.5s; animation-delay: -3s;">
         <span class="dot"></span>CAD · FEA
       </div>
 
@@ -199,12 +199,6 @@
         <p class="eyebrow mono"><span class="eyebrow-index">05</span> — PROJECTS</p>
         <h2 id="projects-heading">Selected Projects</h2>
       </div>
-      <div class="project-filters mono" id="project-filters" role="group" aria-label="Filter projects by discipline">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="mechanical">Mechanical</button>
-        <button class="filter-btn" data-filter="electronics">Electronics</button>
-        <button class="filter-btn" data-filter="software">Software</button>
-      </div>
       <div class="project-grid" id="project-grid" data-repeat="projects" data-template="project-card-template"></div>
     </section>
 
@@ -226,28 +220,37 @@
       <div class="achievements-grid" id="achievements-grid" data-repeat="achievements" data-template="achievement-card-template"></div>
     </section>
 
-    <!-- 08 · CERTIFICATIONS -->
-    <section id="certifications" class="sheet" data-sheet="08" aria-labelledby="certifications-heading">
+    <!-- 08 · MENTORSHIP -->
+    <section id="mentorship" class="sheet" data-sheet="08" aria-labelledby="mentorship-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">08</span> — CERTIFICATIONS</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">08</span> — MENTORSHIP</p>
+        <h2 id="mentorship-heading">Mentorship</h2>
+      </div>
+      <div class="achievements-grid" id="mentorship-grid" data-repeat="mentorship" data-template="achievement-card-template"></div>
+    </section>
+
+    <!-- 09 · CERTIFICATIONS -->
+    <section id="certifications" class="sheet" data-sheet="09" aria-labelledby="certifications-heading">
+      <div class="section-header">
+        <p class="eyebrow mono"><span class="eyebrow-index">09</span> — CERTIFICATIONS</p>
         <h2 id="certifications-heading">Certifications</h2>
       </div>
       <div class="certifications-grid" id="certifications-grid" data-repeat="certifications" data-template="certification-card-template"></div>
     </section>
 
-    <!-- 09 · GALLERY -->
-    <section id="gallery" class="sheet" data-sheet="09" aria-labelledby="gallery-heading">
+    <!-- 10 · GALLERY -->
+    <section id="gallery" class="sheet" data-sheet="10" aria-labelledby="gallery-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">09</span> — GALLERY</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">10</span> — GALLERY</p>
         <h2 id="gallery-heading">Gallery</h2>
       </div>
       <div class="gallery-grid" id="gallery-grid" data-repeat="gallery" data-template="gallery-item-template"></div>
     </section>
 
-    <!-- 10 · RESUME -->
-    <section id="resume" class="sheet" data-sheet="10" aria-labelledby="resume-heading">
+    <!-- 11 · RESUME -->
+    <section id="resume" class="sheet" data-sheet="11" aria-labelledby="resume-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">10</span> — RÉSUMÉ</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">11</span> — RÉSUMÉ</p>
         <h2 id="resume-heading">Résumé</h2>
       </div>
       <div class="resume-panel">
@@ -268,10 +271,10 @@
       </div>
     </section>
 
-    <!-- 11 · CONTACT -->
-    <section id="contact" class="sheet" data-sheet="11" aria-labelledby="contact-heading">
+    <!-- 12 · CONTACT -->
+    <section id="contact" class="sheet" data-sheet="12" aria-labelledby="contact-heading">
       <div class="section-header">
-        <p class="eyebrow mono"><span class="eyebrow-index">11</span> — CONTACT</p>
+        <p class="eyebrow mono"><span class="eyebrow-index">12</span> — CONTACT</p>
         <h2 id="contact-heading">Get in Touch</h2>
       </div>
 
@@ -279,7 +282,7 @@
         <form id="contact-form" class="contact-form" novalidate>
           <!-- honeypot: hidden from real users via CSS, bots tend to fill every field -->
           <input type="checkbox" name="botcheck" class="hidden-field" tabindex="-1" autocomplete="off">
-          <!-- EmailJS wiring + public key location documented in js/script.js (Phase 4) and README.md -->
+          <!-- Web3Forms wiring + access key location documented in js/script.js and README.md -->
           <div class="form-row">
             <label for="cf-name">Name</label>
             <input type="text" id="cf-name" name="from_name" required>
@@ -351,12 +354,13 @@
 
   <!-- ============ TEMPLATES (cloned by js/script.js) ============ -->
 
-  <template id="timeline-item-template">
+ <template id="timeline-item-template">
     <div class="timeline-item">
       <div class="timeline-node" aria-hidden="true"></div>
+      <img class="timeline-logo" data-field-src="logo" data-field-alt="title" src="" alt="">
       <p class="timeline-date mono" data-field="date"></p>
       <h3 class="timeline-title" data-field="title"></h3>
-      <p class="timeline-subtitle" data-field="subtitle"></p>
+      <a class="timeline-subtitle" data-field="subtitle" data-field-href="url" target="_blank" rel="noopener"></a>
       <p class="timeline-description" data-field="description"></p>
     </div>
   </template>
@@ -382,7 +386,7 @@
   </template>
 
   <template id="skill-category-template">
-    <div class="skill-card">
+    <div class="skill-card" data-discipline="">
       <i class="skill-icon" data-field-icon="icon"></i>
       <h3 data-field="category"></h3>
       <div class="skill-items"></div>

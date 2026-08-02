@@ -58,9 +58,9 @@ python3 -m http.server 8000
 
 ## 3. How to edit content
 
-Open `js/config.js`. Every section of the site — hero text, about, education, experience, internship, projects, skills, achievements, certifications, gallery, social links, contact — is a field or array in that one file. Change the text, save, refresh the page. That's the whole workflow.
+Open `js/config.js`. Every section of the site — hero text, about, experience, education, projects, skills, achievements, mentorship, certifications, gallery, social links, contact — is a field or array in that one file. Change the text, save, refresh the page. That's the whole workflow.
 
-Look for `⚠ REPLACE` comments in the file — those mark placeholders (images I didn't have, your social URLs, EmailJS keys) that still need your real values.
+Look for `⚠ REPLACE` comments in the file — those mark placeholders (images I didn't have, your social URLs, Web3Forms key) that still need your real values.
 
 ---
 

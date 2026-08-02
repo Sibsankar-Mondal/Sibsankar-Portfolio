@@ -89,6 +89,8 @@ const CONFIG = {
       date: '2024 — 2028 (Expected)',
       title: 'B.E. in Production Engineering',
       subtitle: 'Jadavpur University, Kolkata',
+      logo: 'assets/images/logos/jadavpur-university.png',
+      url: 'https://jadavpuruniversity.in/',
       description:
         'Currently in the 3rd year, holding a CGPA of 9.55. Coursework spans manufacturing processes, mechanical design, robotics and automation.',
     },
@@ -110,6 +112,7 @@ const CONFIG = {
       company: 'METNMAT Research & Innovations',
       logo: 'assets/images/logos/metnmat.png', // ⚠ ADD this image file
       icon: 'fa-solid fa-industry', // fallback icon if no logo
+      url: 'https://www.metnmat.com/',
       roles: [
         {
           title: 'Mechanical Engineering Intern',
@@ -124,6 +127,7 @@ const CONFIG = {
       company: 'JU Mechatronics Club',
       logo: 'assets/images/logos/mechatronics-club.png', // ⚠ ADD
       icon: 'fa-solid fa-microchip',
+      url: 'https://www.mechatronicsclubju.com/', // ⚠ REPLACE if the club has a website/Instagram — leave blank to keep the name as plain text
       roles: [
         {
           title: 'Hardware Team Member',
@@ -143,6 +147,7 @@ const CONFIG = {
       company: 'Team XLR8 — JU Motorsports Club',
       logo: 'assets/images/logos/xlr8.png', // ⚠ ADD
       icon: 'fa-solid fa-car',
+      url: '', // ⚠ REPLACE if the team has a website/Instagram — leave blank to keep the name as plain text
       roles: [
         {
           title: 'Chassis Subteam',
@@ -352,7 +357,27 @@ const CONFIG = {
      ACHIEVEMENTS
      ⚠ Confirm the years — I estimated based on your current year of study.
   --------------------------------------------------------------------- */
+  /* ---------------------------------------------------------------------
+     ACHIEVEMENTS
+     ⚠ The entry below is a MADE-UP PLACEHOLDER (you asked for an example
+     to replace later) — edit or delete it. To add a real achievement,
+     copy the object shape. To go back to empty, set this to [].
+  --------------------------------------------------------------------- */
   achievements: [
+    {
+      icon: 'fa-solid fa-trophy',
+      date: '2026', // ⚠ PLACEHOLDER — replace with the real date
+      title: '1st Place — [Competition Name]', // ⚠ PLACEHOLDER — replace with a real achievement
+      description:
+        'Example placeholder achievement — replace this with a real competition win, award, or recognition.', // ⚠ PLACEHOLDER
+    },
+  ],
+
+  /* ---------------------------------------------------------------------
+     MENTORSHIP
+     Same card shape as achievements — copy the object below to add more.
+  --------------------------------------------------------------------- */
+  mentorship: [
     {
       icon: 'fa-solid fa-chalkboard-user',
       date: '2025',
